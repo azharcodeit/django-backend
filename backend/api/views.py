@@ -1,10 +1,13 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.contrib.auth.models import User
 from rest_framework import generics
 from .serializers import UserSerializer, NoteSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 # Create your views here.
+def index(request):
+    return HttpResponse("Hello, world. This is the index view of an api app.")
 
 class NoteListCreate(generics.ListCreateAPIView):
     serializer_class = NoteSerializer
